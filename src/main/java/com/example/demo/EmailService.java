@@ -27,7 +27,7 @@ public class EmailService {
         System.out.println("mail sent");
     }
 
-    public void sendEmailWithAttachment(String to, String subject, String body, String attachmentPath) {
+    public void sendEmailWithAttachment(String to, String subject, String body, File file) {
         try {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -35,10 +35,7 @@ public class EmailService {
             helper.setTo(to);
             helper.setSubject(subject);
             helper.setText(body);
-
-            // Attach the CSV file
-            File attachmentFile = new File(attachmentPath);
-            helper.addAttachment(attachmentFile.getName(), attachmentFile);
+            helper.addAttachment(file.getName(),file);
 
             mailSender.send(message);
             System.out.println("Email with attachment sent successfully!");
