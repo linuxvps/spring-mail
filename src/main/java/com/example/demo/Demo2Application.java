@@ -17,8 +17,7 @@ public class Demo2Application {
 
     @EventListener(ApplicationReadyEvent.class)
     public void sendMail() {
-        if (false)
-            emailService.sendEmail("linux.vps.vpn@gmail.com", "hi", "test mail");
+        emailService.sendEmailWithAttachment("linux.vps.vpn@gmail.com", "hi", "test mail", "C:\\Users\\NIMA\\IdeaProjects\\demo2\\src\\main\\resources\\static\\myimage.png");
     }
 
 }
