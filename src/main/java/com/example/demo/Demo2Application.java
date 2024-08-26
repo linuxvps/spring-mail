@@ -22,7 +22,8 @@ public class Demo2Application {
     @EventListener(ApplicationReadyEvent.class)
     public void sendMail() {
         String path = "C:\\Users\\NIMA\\IdeaProjects\\demo2\\src\\main\\resources\\static\\myimage.png";
-        emailService.sendEmailWithAttachment("linux.vps.vpn@gmail.com", "hi", "test mail", getFile(path));
+//        emailService.sendEmailWithAttachment("linux.vps.vpn@gmail.com", "hi", "test mail", getFile(path));
+        emailService.sendEmailWithAttachment("linux.vps.vpn@gmail.com", "hi", "test mail",getFile(path));
     }
 
     private static File getFile(String path) {
