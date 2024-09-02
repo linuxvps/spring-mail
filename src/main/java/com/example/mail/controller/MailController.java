@@ -3,8 +3,10 @@ package com.example.mail.controller;
 import com.example.mail.request.EmailRequest;
 import com.example.mail.response.ApiResponse;
 import com.example.mail.service.EmailService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 
 @RestController
+@Validated
 public class MailController {
 
 
@@ -23,8 +26,8 @@ public class MailController {
     }
 
     @PostMapping("/send-email")
-    public ResponseEntity<ApiResponse> sendEmail(@RequestBody EmailRequest request) {
-        emailService.sendEmail(request.getTo(), request.getSubject(), request.getBody());
+    public ResponseEntity<ApiResponse> sendEmail(@Valid @RequestBody EmailRequest request) {
+//        emailService.sendEmail(request.getTo(), request.getSubject(), request.getBody());
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(true, "Email sent successfully!"));
     }
 
