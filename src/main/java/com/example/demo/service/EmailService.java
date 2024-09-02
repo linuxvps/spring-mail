@@ -1,11 +1,10 @@
-package com.example.demo;
+package com.example.demo.service;
 
 import jakarta.mail.BodyPart;
 import jakarta.mail.MessagingException;
 import jakarta.mail.Multipart;
 import jakarta.mail.Part;
 import jakarta.mail.internet.MimeMessage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -53,28 +52,13 @@ public class EmailService {
             helper.setText(body);
             helper.addAttachment(file.getName(),file);
 
-//            mailSender.send(message);
+            mailSender.send(message);
             logAttachmentNames(message);
             System.out.println("Email with attachment sent successfully!");
 
         } catch (Exception e) {
             System.out.println("Email failed!");
         }
-    }
-    public void logAttachmentName(MimeMessage message) {
-
-        try {
-            Multipart multipart = (Multipart) message.getContent();
-            for (int i = 0; i < multipart.getCount(); i++) {
-                BodyPart bodyPart = multipart.getBodyPart(i);
-                if (Part.ATTACHMENT.equalsIgnoreCase(bodyPart.getDisposition())) {
-                    System.out.println("Attachment name: " + bodyPart.getFileName());
-                }
-            }
-        } catch (Exception e) {
-
-        }
-
     }
 
     public void logAttachmentNames(MimeMessage message) {
