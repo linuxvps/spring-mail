@@ -27,7 +27,7 @@ public class MailController {
 
     @PostMapping("/send-email")
     public ResponseEntity<ApiResponse> sendEmail(@Valid @RequestBody EmailRequest request) {
-//        emailService.sendEmail(request.getTo(), request.getSubject(), request.getBody());
+        emailService.sendEmail(request.getTo(), request.getSubject(), request.getBody());
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(true, "Email sent successfully!"));
     }
 
