@@ -1,4 +1,4 @@
-package com.example.demo.response;
+package com.example.mail.response;
 
 
 import lombok.AllArgsConstructor;

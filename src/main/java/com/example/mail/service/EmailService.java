@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.mail.service;
 
 import jakarta.mail.BodyPart;
 import jakarta.mail.MessagingException;
@@ -65,8 +65,7 @@ public class EmailService {
         try {
             Object content = message.getContent();
 
-            if (content instanceof Multipart) {
-                Multipart multipart = (Multipart) content;
+            if (content instanceof Multipart multipart) {
                 for (int i = 0; i < multipart.getCount(); i++) {
                     BodyPart bodyPart = multipart.getBodyPart(i);
                     String disposition = bodyPart.getDisposition();

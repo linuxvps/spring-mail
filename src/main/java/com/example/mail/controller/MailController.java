@@ -1,8 +1,8 @@
-package com.example.demo.controller;
+package com.example.mail.controller;
 
-import com.example.demo.request.EmailRequest;
-import com.example.demo.response.ApiResponse;
-import com.example.demo.service.EmailService;
+import com.example.mail.request.EmailRequest;
+import com.example.mail.response.ApiResponse;
+import com.example.mail.service.EmailService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
 @RestController
 public class MailController {
