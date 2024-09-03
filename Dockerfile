@@ -22,3 +22,10 @@ ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 
 ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
 CMD ["mvn","-v"]
+
+WORKDIR /application
+
+COPY . .
+
+CMD ["mvn","clean","install"]
+
