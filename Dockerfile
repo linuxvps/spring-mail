@@ -5,10 +5,10 @@ FROM openjdk:22
 WORKDIR /application
 
 # Copy the .jar file into the container
-COPY . .
+COPY target .
 
 # Expose the port that the application will use
 EXPOSE 8888
 
 # Run the command to start the application when the container launches
-CMD ["java", "-jar", "target/mail-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "mail-0.0.1-SNAPSHOT.jar"]
