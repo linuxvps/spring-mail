@@ -22,14 +22,24 @@ ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 
 ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
 CMD ["mvn","-v"]
-
+############# one of this #############
+#WORKDIR /application
+#
+#COPY . .
+#
+## Run Maven clean install during build
+#RUN mvn clean install
+#
+## Set the default command to run the app
+#CMD ["java", "-jar", "target/mail-0.0.1-SNAPSHOT.jar"]
+############# one of this #############
 WORKDIR /application
 
-COPY . .
+COPY target/mail-0.0.1-SNAPSHOT.jar .
 
 # Run Maven clean install during build
-RUN mvn clean install
+#RUN mvn clean install
 
 # Set the default command to run the app
-CMD ["java", "-jar", "target/mail-0.0.1-SNAPSHOT.jar"]
-
+#CMD ["java", "-jar", "target/mail-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "mail-0.0.1-SNAPSHOT.jar"]
