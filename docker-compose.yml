@@ -1,29 +1,6 @@
 version: '3'
 services:
-  db:
-    image: mysql:8.0
-    hostname: db
-    environment:
-      - MYSQL_DATABASE=mail
-      - MYSQL_PASSWORD=password
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_USER=nima
-    volumes:
-      - db-data:/var/lib/mysql
-    ports:
-      - "3306:3306"
-    restart: no
-
   mail-app:
     build: .
     ports:
-      - "8888:8888"
-    depends_on:
-      - db
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/mail
-      - SPRING_DATASOURCE_USERNAME=nima
-      - SPRING_DATASOURCE_PASSWORD=password
-
-volumes:
-  db-data:
+      - "8588:8888"
