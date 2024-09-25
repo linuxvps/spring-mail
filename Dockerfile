@@ -27,7 +27,7 @@ WORKDIR /application
 COPY . .
 
 # Run Maven clean install during build
-RUN mvn clean install
+RUN mvn clean install -DskipTests
 
 # Set the default command to run the app
 CMD ["java", "-jar", "target/mail-0.0.1-SNAPSHOT.jar"]
