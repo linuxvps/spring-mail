@@ -4,3 +4,17 @@ services:
     build: .
     ports:
       - "8588:8888"
+
+  mysql-db:
+    image: mysql:latest
+    container_name: some-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: asd123
+      MYSQL_DATABASE: test
+      MYSQL_USER: nima
+      MYSQL_PASSWORD: 123asdnim@
+    volumes:
+      - /mysqldata:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    restart: always
