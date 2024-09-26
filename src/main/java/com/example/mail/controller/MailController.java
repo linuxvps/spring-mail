@@ -1,8 +1,10 @@
 package com.example.mail.controller;
 
+import com.example.mail.entity.Mail;
 import com.example.mail.request.EmailRequest;
 import com.example.mail.response.ApiResponse;
 import com.example.mail.service.EmailService;
+import com.example.mail.services.MailServices;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,14 +22,20 @@ public class MailController {
 
 
     private final EmailService emailService;
+    private final MailServices services;
 
-    public MailController(EmailService emailService) {
+
+    public MailController(EmailService emailService, MailServices services) {
         this.emailService = emailService;
+        this.services = services;
     }
 
     @PostMapping("/send-email")
     public ResponseEntity<ApiResponse> sendEmail(@Valid @RequestBody EmailRequest request) {
 //        emailService.sendEmail(request.to(), request.subject(), request.body());
+        Mail mail = new Mail();
+        mail.setSubject(request.subject());
+        services.saveMail(mail);
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(true, "Email sent successfully!"));
     }
 
