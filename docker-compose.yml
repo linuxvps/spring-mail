@@ -11,7 +11,7 @@ services:
         volumes:
             - mysqldata:/var/lib/mysql
         ports:
-            - "3307:3306"
+            - "3306:3306"
         restart: always
         healthcheck:
             test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
