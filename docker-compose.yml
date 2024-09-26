@@ -18,6 +18,8 @@ services:
             interval: 10s
             retries: 5
             timeout: 10s
+        networks:
+            - app-network
 
     mail-app:
         build: .
@@ -27,6 +29,12 @@ services:
             mysql-db:
                 condition: service_healthy
         restart: always
+        networks:
+            - app-network
 
 volumes:
     mysqldata:
+
+networks:
+    app-network:
+        driver: bridge
