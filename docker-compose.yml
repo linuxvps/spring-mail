@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
     mysql-db:
         image: mysql:latest
@@ -9,14 +9,24 @@ services:
             MYSQL_USER: nima
             MYSQL_PASSWORD: 123asdnim@
         volumes:
-            - /mysqldata:/var/lib/mysql
+            - mysqldata:/var/lib/mysql
         ports:
             - "3307:3306"
         restart: always
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+            interval: 10s
+            retries: 5
+            timeout: 10s
 
     mail-app:
         build: .
         ports:
             - "8588:8888"
         depends_on:
-            - mysql-db
+            mysql-db:
+                condition: service_healthy
+        restart: always
+
+volumes:
+    mysqldata:
