@@ -25,6 +25,8 @@ services:
         build: .
         ports:
             - "8588:8888"
+        environment:
+            - spring.datasource.url=jdbc:mysql://localhost:3306/test
         depends_on:
             mysql-db:
                 condition: service_healthy
