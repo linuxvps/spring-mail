@@ -1,6 +1,6 @@
 package com.example.mail;
 
-import com.example.mail.service.EmailService;
+import com.example.mail.email.service.EmailService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;

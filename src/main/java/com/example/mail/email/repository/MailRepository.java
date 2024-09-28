@@ -1,6 +1,6 @@
-package com.example.mail.repository;
+package com.example.mail.email.repository;
 
-import com.example.mail.entity.Mail;
+import com.example.mail.email.entity.Mail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

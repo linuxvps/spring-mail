@@ -1,4 +1,4 @@
-package com.example.mail.service;
+package com.example.mail.email.service;
 
 import jakarta.mail.BodyPart;
 import jakarta.mail.MessagingException;

@@ -1,4 +1,4 @@
-package com.example.mail.entity;
+package com.example.mail.email.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

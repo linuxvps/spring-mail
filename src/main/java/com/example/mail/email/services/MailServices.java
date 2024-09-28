@@ -1,7 +1,7 @@
-package com.example.mail.services;
+package com.example.mail.email.services;
 
-import com.example.mail.entity.Mail;
-import com.example.mail.repository.MailRepository;
+import com.example.mail.email.entity.Mail;
+import com.example.mail.email.repository.MailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
